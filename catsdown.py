@@ -48,7 +48,17 @@ def game_list(f):
 def clear_command():
 	return os.system('cls' if os.name == 'nt' else 'clear')
 
-def start_game():
+def replay():
+	print "\n\n\nThat's 30 seconds."
+	print "That's all they give you on the show."
+	print "You can keep playing as long as you want though."
+	print "\n\n\nWhen you're ready for new numbers, press ENTER."
+	print "Or CTRL + C to make me go away."
+	raw_input()
+	clear_command()
+	game()
+
+def game():
 	answer = first_ask()
 	numbers = game_list(answer)
 	stringy_list = " | ".join(map(str, numbers))
@@ -57,11 +67,9 @@ def start_game():
 
 	print "Target: %d\n\nList: %s" % (target, stringy_list)
 	time.sleep(32.5)
-	print "\n\n\nThat's 30 seconds."
-	print "That's all they give you on the show."
-	print "You can keep playing as long as you want though."
-	print "\n\n\nWhen you're ready for new numbers, press ENTER."
-	print "Or CTRL + C to make me go away."
+	replay()
+	
+	
 
 
 
@@ -73,7 +81,7 @@ bigs = [25,50,75,100]
 
 
 intro()
-start_game()
+game()
 
 
 
